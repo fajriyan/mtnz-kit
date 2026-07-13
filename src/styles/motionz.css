@@ -1,0 +1,10 @@
+.motionz-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.motionz-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
