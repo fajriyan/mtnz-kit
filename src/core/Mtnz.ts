@@ -1,8 +1,8 @@
-import type { MotionzAnimation, MotionzOptions } from "../types/MotionzOptions";
+import type { MtnzAnimation, MtnzOptions } from "../types/MtnzOptions";
 import Engine from "./Engine";
 
-class Motionz {
-  public init(options: MotionzOptions = {}): void {
+class Mtnz {
+  public init(options: MtnzOptions = {}): void {
     Engine.init(options);
   }
 
@@ -14,9 +14,9 @@ class Motionz {
     Engine.destroy();
   }
 
-  public register(name: string, animation: MotionzAnimation): void {
+  public register(name: string, animation: MtnzAnimation): void {
     Engine.register(name, animation);
   }
 }
 
-export default new Motionz();
+export default new Mtnz();

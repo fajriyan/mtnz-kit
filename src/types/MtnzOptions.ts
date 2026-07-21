@@ -1,4 +1,4 @@
-export interface MotionzOptions {
+export interface MtnzOptions {
   once?: boolean;
   offset?: number;
   duration?: number;
@@ -7,7 +7,7 @@ export interface MotionzOptions {
   animation?: string;
 }
 
-export type MotionzAnimation = (
+export type MtnzAnimation = (
   element: HTMLElement,
-  options: MotionzOptions,
+  options: MtnzOptions,
 ) => void;
