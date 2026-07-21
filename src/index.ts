@@ -1,3 +1,3 @@
-import Motionz from "./core/Motionz";
-export * from "./types/MotionzOptions";
-export default Motionz;
+import Mtnz from "./core/Mtnz";
+export * from "./types/MtnzOptions";
+export default Mtnz;

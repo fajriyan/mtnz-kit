@@ -1,4 +1,4 @@
-import type { MotionzOptions } from "../types/MotionzOptions";
+import type { MtnzOptions } from "../types/MtnzOptions";
 
 function parseBoolean(
   value: string | undefined,
@@ -26,18 +26,18 @@ function parseNumber(
 export default class Parser {
   public static parseElementOptions(
     element: HTMLElement,
-    defaults: MotionzOptions,
-  ): MotionzOptions {
+    defaults: MtnzOptions,
+  ): MtnzOptions {
     const dataset = element.dataset;
-    const options: MotionzOptions = {};
+    const options: MtnzOptions = {};
 
-    const animation = dataset.motion || dataset.motionz || defaults.animation;
+    const animation = dataset.motion || dataset.mtnz || defaults.animation;
     if (animation !== undefined) {
       options.animation = animation;
     }
 
     const once = parseBoolean(
-      dataset.motionzOnce || dataset.motionOnce,
+      dataset.mtnzOnce || dataset.motionOnce,
       defaults.once,
     );
     if (once !== undefined) {
@@ -45,7 +45,7 @@ export default class Parser {
     }
 
     const offset = parseNumber(
-      dataset.motionzOffset || dataset.motionOffset,
+      dataset.mtnzOffset || dataset.motionOffset,
       defaults.offset,
     );
     if (offset !== undefined) {
@@ -53,7 +53,7 @@ export default class Parser {
     }
 
     const duration = parseNumber(
-      dataset.motionzDuration || dataset.motionDuration,
+      dataset.mtnzDuration || dataset.motionDuration,
       defaults.duration,
     );
     if (duration !== undefined) {
@@ -61,7 +61,7 @@ export default class Parser {
     }
 
     const delay = parseNumber(
-      dataset.motionzDelay || dataset.motionDelay,
+      dataset.mtnzDelay || dataset.motionDelay,
       defaults.delay,
     );
     if (delay !== undefined) {
@@ -69,7 +69,7 @@ export default class Parser {
     }
 
     const easing =
-      dataset.motionzEasing || dataset.motionEasing || defaults.easing;
+      dataset.mtnzEasing || dataset.motionEasing || defaults.easing;
     if (easing !== undefined) {
       options.easing = easing;
     }

@@ -1,13 +1,13 @@
-import type { MotionzAnimation } from "../types/MotionzOptions";
+import type { MtnzAnimation } from "../types/MtnzOptions";
 
-const registry = new Map<string, MotionzAnimation>();
+const registry = new Map<string, MtnzAnimation>();
 
 export default class Registry {
-  public static register(name: string, animation: MotionzAnimation): void {
+  public static register(name: string, animation: MtnzAnimation): void {
     registry.set(name, animation);
   }
 
-  public static get(name: string): MotionzAnimation | undefined {
+  public static get(name: string): MtnzAnimation | undefined {
     return registry.get(name);
   }
 

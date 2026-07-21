@@ -1,10 +1,10 @@
-import type { MotionzAnimation, MotionzOptions } from "../types/MotionzOptions";
+import type { MtnzAnimation, MtnzOptions } from "../types/MtnzOptions";
 import Parser from "./Parser";
 import Registry from "./Registry";
 import Observer from "./Observer";
 import fadeAnimation from "../animations/fade";
 
-const DEFAULT_OPTIONS: MotionzOptions = {
+const DEFAULT_OPTIONS: MtnzOptions = {
   once: true,
   offset: 0,
   duration: 600,
@@ -15,10 +15,10 @@ const DEFAULT_OPTIONS: MotionzOptions = {
 
 class Engine {
   private observer: Observer | null = null;
-  private options: MotionzOptions = { ...DEFAULT_OPTIONS };
+  private options: MtnzOptions = { ...DEFAULT_OPTIONS };
   private initialized = false;
 
-  public init(options: MotionzOptions = {}): void {
+  public init(options: MtnzOptions = {}): void {
     this.options = { ...DEFAULT_OPTIONS, ...options };
 
     if (!this.initialized) {
@@ -49,15 +49,15 @@ class Engine {
     this.initialized = false;
   }
 
-  public register(name: string, animation: MotionzAnimation): void {
+  public register(name: string, animation: MtnzAnimation): void {
     Registry.register(name, animation);
   }
 
   private collectMotionElements(): HTMLElement[] {
-    const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-motionz], [data-motion]"));
+    const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-mtnz], [data-motion]"));
 
     elements.forEach((element) => {
-      element.classList.add("motionz-hidden");
+      element.classList.add("mtnz-hidden");
       element.style.opacity = "0";
       element.style.transform = "translateY(16px)";
       element.style.willChange = "opacity, transform";
@@ -74,7 +74,7 @@ class Engine {
     }
 
     const options = Parser.parseElementOptions(element, this.options);
-    const animationName = options.animation ?? element.dataset.motion ?? element.dataset.motionz ?? "fade";
+    const animationName = options.animation ?? element.dataset.motion ?? element.dataset.mtnz ?? "fade";
     const animation = Registry.get(animationName) ?? Registry.get("fade");
 
     animation?.(element, options);

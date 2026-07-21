@@ -1,16 +1,16 @@
 {
-   "name": "motionz",
-   "version": "0.0.1",
+   "name": "mntz-kit",
+   "version": "0.0.2",
    "description": "A lightweight motion helper for DOM entry animations.",
-   "main": "./dist/motionz.umd.js",
-   "module": "./dist/motionz.es.js",
+   "main": "./dist/mtnz.umd.js",
+   "module": "./dist/mtnz.es.js",
    "types": "./dist/index.d.ts",
-   "unpkg": "./dist/motionz.umd.js",
-   "jsdelivr": "./dist/motionz.umd.js",
+   "unpkg": "./dist/mtnz.umd.js",
+   "jsdelivr": "./dist/mtnz.umd.js",
    "exports": {
       ".": {
-         "import": "./dist/motionz.es.js",
-         "default": "./dist/motionz.umd.js"
+         "import": "./dist/mtnz.es.js",
+         "default": "./dist/mtnz.umd.js"
       }
    },
    "scripts": {
@@ -29,6 +29,9 @@
    ],
    "author": "fajriyan",
    "license": "MIT",
+   "files": [
+      "dist"
+   ],
    "type": "module",
    "devDependencies": {
       "@types/node": "^26.1.0",

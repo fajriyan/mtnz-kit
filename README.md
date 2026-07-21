@@ -1,6 +1,6 @@
-# Motionz
+# mtnz
 
-Motionz adalah library TypeScript ringan untuk membuat animasi elemen DOM masuk
+mtnz adalah library TypeScript ringan untuk membuat animasi elemen DOM masuk
 ke viewport menggunakan `IntersectionObserver`.
 
 ## Fitur
@@ -15,13 +15,13 @@ ke viewport menggunakan `IntersectionObserver`.
 > Jika menggunakan npm
 
 ```bash
-npm install motionz
+npm install mntz-kit
 ```
 
 > Jika menggunakan Yarn
 
 ```bash
-yarn add motionz
+yarn add mntz-kit
 ```
 
 ## Penggunaan
@@ -29,26 +29,26 @@ yarn add motionz
 ### 1. Inisialisasi dasar
 
 ```ts
-import Motionz from "motionz";
+import mtnz from "mntz-kit";
 
-Motionz.init();
+mtnz.init();
 ```
 
 ### 2. Inisialisasi dengan opsi global
 
 ```ts
-Motionz.init({
-  once: true,
-  offset: 50,
-  duration: 800,
-  delay: 100,
-  easing: "ease-out",
+mtnz.init({
+   once: true,
+   offset: 50,
+   duration: 800,
+   delay: 100,
+   easing: "ease-out",
 });
 ```
 
 ### 3. Menggunakan atribut HTML
 
-Gunakan atribut `data-motionz` atau `data-motion` pada elemen untuk memicu
+Gunakan atribut `data-mtnz` atau `data-motion` pada elemen untuk memicu
 animasi.
 
 ```html
@@ -59,31 +59,31 @@ animasi.
 
 ```html
 <div
-  data-motion="fade"
-  data-motion-duration="1000"
-  data-motion-delay="200"
-  data-motion-easing="ease-in-out"
-  data-motion-once="false"
+   data-motion="fade"
+   data-motion-duration="1000"
+   data-motion-delay="200"
+   data-motion-easing="ease-in-out"
+   data-motion-once="false"
 >
-  Animasi khusus
+   Animasi khusus
 </div>
 ```
 
 ### 5. Animasi kustom
 
 ```ts
-Motionz.register("slide", (element, options) => {
-  element.style.opacity = "0";
-  element.style.transform = "translateX(-24px)";
-  element.style.transition = `opacity ${options.duration ?? 600}ms ${options.easing ?? "ease-out"} ${options.delay ?? 0}ms, transform ${options.duration ?? 600}ms ${options.easing ?? "ease-out"} ${options.delay ?? 0}ms`;
+mtnz.register("slide", (element, options) => {
+   element.style.opacity = "0";
+   element.style.transform = "translateX(-24px)";
+   element.style.transition = `opacity ${options.duration ?? 600}ms ${options.easing ?? "ease-out"} ${options.delay ?? 0}ms, transform ${options.duration ?? 600}ms ${options.easing ?? "ease-out"} ${options.delay ?? 0}ms`;
 
-  requestAnimationFrame(() => {
-    element.style.opacity = "1";
-    element.style.transform = "translateX(0)";
-  });
+   requestAnimationFrame(() => {
+      element.style.opacity = "1";
+      element.style.transform = "translateX(0)";
+   });
 });
 
-Motionz.init();
+mtnz.init();
 ```
 
 Lalu di HTML:
@@ -94,26 +94,26 @@ Lalu di HTML:
 
 ## API
 
-### `Motionz.init(options?)`
+### `mtnz.init(options?)`
 
-- `options`: `MotionzOptions`
+- `options`: `mtnzOptions`
 - Mendaftarkan animasi `fade` sebagai default.
-- Memulai observasi elemen dengan `data-motionz` / `data-motion`.
+- Memulai observasi elemen dengan `data-mtnz` / `data-motion`.
 
-### `Motionz.refresh()`
+### `mtnz.refresh()`
 
 - Memuat ulang target elemen dan observer.
 
-### `Motionz.destroy()`
+### `mtnz.destroy()`
 
 - Menghentikan observer dan membersihkan state.
 
-### `Motionz.register(name, animation)`
+### `mtnz.register(name, animation)`
 
 - `name`: nama animasi.
 - `animation`: fungsi `(element, options) => void`.
 
-## Opsi `MotionzOptions`
+## Opsi `mtnzOptions`
 
 | Opsi        | Tipe      | Default    | Keterangan                         |
 | ----------- | --------- | ---------- | ---------------------------------- |
@@ -127,14 +127,14 @@ Lalu di HTML:
 ## Struktur Proyek
 
 - `src/index.ts` — titik masuk library
-- `src/core/Motionz.ts` — API publik
+- `src/core/mtnz.ts` — API publik
 - `src/core/Engine.ts` — logika utama dan observer
 - `src/core/Observer.ts` — wrapper IntersectionObserver
 - `src/core/Parser.ts` — parsing atribut data
 - `src/core/Registry.ts` — registry animasi
 - `src/animations/fade.ts` — animasi bawaan
-- `src/types/MotionzOptions.ts` — tipe TypeScript
-- `src/styles/motionz.css` — utilitas gaya animasi
+- `src/types/mtnzOptions.ts` — tipe TypeScript
+- `src/styles/mtnz.css` — utilitas gaya animasi
 
 ## Build
 
@@ -152,14 +152,14 @@ npm test
 
 ### Import ESM langsung
 
-Jika kamu ingin menggunakan Motionz tanpa instalasi npm, gunakan CDN modul ES
+Jika kamu ingin menggunakan mtnz tanpa instalasi npm, gunakan CDN modul ES
 seperti berikut:
 
 ```html
 <script type="module">
-  import Motionz from "https://cdn.jsdelivr.net/npm/motionz@0.0.1/dist/motionz.es.js";
+   import mtnz from "https://cdn.jsdelivr.net/npm/mntz-kit@0.x.x/dist/mtnz.es.js";
 
-  Motionz.init();
+   mtnz.init();
 </script>
 ```
 
@@ -168,12 +168,12 @@ seperti berikut:
 ### Script tag UMD
 
 Untuk penggunaan langsung tanpa `import`, gunakan bundle UMD dan akses variabel
-global `Motionz`:
+global `mtnz`:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/motionz@0.0.1/dist/motionz.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mntz-kit@0.x.x/dist/mtnz.umd.js"></script>
 <script>
-  Motionz.init();
+   mtnz.init();
 </script>
 ```
 
