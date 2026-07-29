@@ -5,10 +5,58 @@ ke viewport menggunakan `IntersectionObserver`.
 
 ## Fitur
 
-- Animasi `fade` otomatis ketika elemen muncul di viewport
+- Animasi otomatis ketika elemen muncul di viewport
 - Registrasi animasi kustom
 - Dukungan opsi global dan atribut `data-` pada elemen
 - API sederhana: `init`, `refresh`, `destroy`, `register`
+- 26+ animasi built-in
+
+## Animasi Bawaan
+
+**Fade**
+- `fade`
+- `fade-up`
+- `fade-down`
+- `fade-left`
+- `fade-right`
+- `fade-up-right`
+- `fade-up-left`
+- `fade-down-right`
+- `fade-down-left`
+
+**Flip**
+- `flip-up`
+- `flip-down`
+- `flip-left`
+- `flip-right`
+
+**Slide**
+- `slide-up`
+- `slide-down`
+- `slide-left`
+- `slide-right`
+
+**Zoom In**
+- `zoom-in`
+- `zoom-in-up`
+- `zoom-in-down`
+- `zoom-in-left`
+- `zoom-in-right`
+
+**Zoom Out**
+- `zoom-out`
+- `zoom-out-up`
+- `zoom-out-down`
+- `zoom-out-left`
+- `zoom-out-right`
+
+Gunakan melalui atribut `data-motion`:
+
+```html
+<div data-motion="fade-up">Naik</div>
+<div data-motion="flip-left">Balik</div>
+<div data-motion="zoom-in">Membesar</div>
+```
 
 ## Instalasi
 
@@ -132,7 +180,10 @@ Lalu di HTML:
 - `src/core/Observer.ts` — wrapper IntersectionObserver
 - `src/core/Parser.ts` — parsing atribut data
 - `src/core/Registry.ts` — registry animasi
-- `src/animations/fade.ts` — animasi bawaan
+- `src/animations/fade.ts` — animasi fade & directional variants
+- `src/animations/flip.ts` — animasi flip
+- `src/animations/slide.ts` — animasi slide
+- `src/animations/zoom.ts` — animasi zoom-in & zoom-out
 - `src/types/mtnzOptions.ts` — tipe TypeScript
 - `src/styles/mtnz.css` — utilitas gaya animasi
 
