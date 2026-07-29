@@ -8,7 +8,7 @@ const DEFAULTS: Required<
   easing: "ease-out",
 };
 
-function createFade(transformStart: string): MtnzAnimation {
+function createSlide(transformStart: string): MtnzAnimation {
   return (element, options) => {
     const duration = options.duration ?? DEFAULTS.duration;
     const delay = options.delay ?? DEFAULTS.delay;
@@ -27,14 +27,7 @@ function createFade(transformStart: string): MtnzAnimation {
   };
 }
 
-export const fadeUp = createFade("translateY(16px)");
-export const fadeDown = createFade("translateY(-16px)");
-export const fadeLeft = createFade("translateX(16px)");
-export const fadeRight = createFade("translateX(-16px)");
-export const fadeUpRight = createFade("translate(-16px, 16px)");
-export const fadeUpLeft = createFade("translate(16px, 16px)");
-export const fadeDownRight = createFade("translate(-16px, -16px)");
-export const fadeDownLeft = createFade("translate(16px, -16px)");
-
-const fadeAnimation = fadeUp;
-export default fadeAnimation;
+export const slideUp = createSlide("translateY(100%)");
+export const slideDown = createSlide("translateY(-100%)");
+export const slideLeft = createSlide("translateX(100%)");
+export const slideRight = createSlide("translateX(-100%)");

@@ -2,7 +2,30 @@ import type { MtnzAnimation, MtnzOptions } from "../types/MtnzOptions";
 import Parser from "./Parser";
 import Registry from "./Registry";
 import Observer from "./Observer";
-import fadeAnimation from "../animations/fade";
+import fadeAnimation, {
+  fadeUp,
+  fadeDown,
+  fadeLeft,
+  fadeRight,
+  fadeUpRight,
+  fadeUpLeft,
+  fadeDownRight,
+  fadeDownLeft,
+} from "../animations/fade";
+import { flipUp, flipDown, flipLeft, flipRight } from "../animations/flip";
+import { slideUp, slideDown, slideLeft, slideRight } from "../animations/slide";
+import {
+  zoomIn,
+  zoomInUp,
+  zoomInDown,
+  zoomInLeft,
+  zoomInRight,
+  zoomOut,
+  zoomOutUp,
+  zoomOutDown,
+  zoomOutLeft,
+  zoomOutRight,
+} from "../animations/zoom";
 
 const DEFAULT_OPTIONS: MtnzOptions = {
   once: true,
@@ -23,6 +46,36 @@ class Engine {
 
     if (!this.initialized) {
       this.register("fade", fadeAnimation);
+      this.register("fade-up", fadeUp);
+      this.register("fade-down", fadeDown);
+      this.register("fade-left", fadeLeft);
+      this.register("fade-right", fadeRight);
+      this.register("fade-up-right", fadeUpRight);
+      this.register("fade-up-left", fadeUpLeft);
+      this.register("fade-down-right", fadeDownRight);
+      this.register("fade-down-left", fadeDownLeft);
+
+      this.register("flip-up", flipUp);
+      this.register("flip-down", flipDown);
+      this.register("flip-left", flipLeft);
+      this.register("flip-right", flipRight);
+
+      this.register("slide-up", slideUp);
+      this.register("slide-down", slideDown);
+      this.register("slide-left", slideLeft);
+      this.register("slide-right", slideRight);
+
+      this.register("zoom-in", zoomIn);
+      this.register("zoom-in-up", zoomInUp);
+      this.register("zoom-in-down", zoomInDown);
+      this.register("zoom-in-left", zoomInLeft);
+      this.register("zoom-in-right", zoomInRight);
+      this.register("zoom-out", zoomOut);
+      this.register("zoom-out-up", zoomOutUp);
+      this.register("zoom-out-down", zoomOutDown);
+      this.register("zoom-out-left", zoomOutLeft);
+      this.register("zoom-out-right", zoomOutRight);
+
       this.initialized = true;
     }
 
@@ -59,7 +112,6 @@ class Engine {
     elements.forEach((element) => {
       element.classList.add("mtnz-hidden");
       element.style.opacity = "0";
-      element.style.transform = "translateY(16px)";
       element.style.willChange = "opacity, transform";
     });
 

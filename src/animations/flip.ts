@@ -8,7 +8,7 @@ const DEFAULTS: Required<
   easing: "ease-out",
 };
 
-function createFade(transformStart: string): MtnzAnimation {
+function createFlip(transformStart: string): MtnzAnimation {
   return (element, options) => {
     const duration = options.duration ?? DEFAULTS.duration;
     const delay = options.delay ?? DEFAULTS.delay;
@@ -22,19 +22,12 @@ function createFade(transformStart: string): MtnzAnimation {
 
     requestAnimationFrame(() => {
       element.style.opacity = "1";
-      element.style.transform = "translate(0, 0)";
+      element.style.transform = "rotateX(0) rotateY(0)";
     });
   };
 }
 
-export const fadeUp = createFade("translateY(16px)");
-export const fadeDown = createFade("translateY(-16px)");
-export const fadeLeft = createFade("translateX(16px)");
-export const fadeRight = createFade("translateX(-16px)");
-export const fadeUpRight = createFade("translate(-16px, 16px)");
-export const fadeUpLeft = createFade("translate(16px, 16px)");
-export const fadeDownRight = createFade("translate(-16px, -16px)");
-export const fadeDownLeft = createFade("translate(16px, -16px)");
-
-const fadeAnimation = fadeUp;
-export default fadeAnimation;
+export const flipUp = createFlip("rotateX(90deg)");
+export const flipDown = createFlip("rotateX(-90deg)");
+export const flipLeft = createFlip("rotateY(-90deg)");
+export const flipRight = createFlip("rotateY(90deg)");
