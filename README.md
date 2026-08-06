@@ -1,5 +1,7 @@
 # mtnz
 
+<img src="/public/favicon.png" style="width:100px">
+
 mtnz adalah library TypeScript ringan untuk membuat animasi elemen DOM masuk
 ke viewport menggunakan `IntersectionObserver`.
 
@@ -14,6 +16,7 @@ ke viewport menggunakan `IntersectionObserver`.
 ## Animasi Bawaan
 
 **Fade**
+
 - `fade`
 - `fade-up`
 - `fade-down`
@@ -25,18 +28,21 @@ ke viewport menggunakan `IntersectionObserver`.
 - `fade-down-left`
 
 **Flip**
+
 - `flip-up`
 - `flip-down`
 - `flip-left`
 - `flip-right`
 
 **Slide**
+
 - `slide-up`
 - `slide-down`
 - `slide-left`
 - `slide-right`
 
 **Zoom In**
+
 - `zoom-in`
 - `zoom-in-up`
 - `zoom-in-down`
@@ -44,6 +50,7 @@ ke viewport menggunakan `IntersectionObserver`.
 - `zoom-in-right`
 
 **Zoom Out**
+
 - `zoom-out`
 - `zoom-out-up`
 - `zoom-out-down`

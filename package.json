@@ -1,6 +1,6 @@
 {
    "name": "mntz-kit",
-   "version": "0.0.2",
+   "version": "0.0.3",
    "description": "A lightweight motion helper for DOM entry animations.",
    "main": "./dist/mtnz.umd.js",
    "module": "./dist/mtnz.es.js",
